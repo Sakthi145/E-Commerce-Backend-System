@@ -1,0 +1,16 @@
+package com.ecommerce.backend.cart_module.dto;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class UpdateCartRequest {
+
+    @NotNull
+    @Min(1)
+    private Integer quantity;
+
+}
