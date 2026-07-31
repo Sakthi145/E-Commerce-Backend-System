@@ -30,12 +30,12 @@ public class CategoryController {
     }
 
 
-    @Operation(summary = "Create Product")
+    @Operation(summary = "Create Category")
     @ApiResponses({
-            @ApiResponse(responseCode = "201", description = "Product created successfully"),
+            @ApiResponse(responseCode = "201", description = "Category created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request"),
             @ApiResponse(responseCode = "401", description = "Unauthorized"),
-            @ApiResponse(responseCode = "403", description = "Only ADMIN can create products")
+            @ApiResponse(responseCode = "403", description = "Only ADMIN can create categories")
     })
     @PostMapping("/categories")
     @PreAuthorize("hasRole('ADMIN')")
@@ -46,9 +46,9 @@ public class CategoryController {
 
 
 
-    @Operation(summary = "Get All Products")
+    @Operation(summary = "Get All Categories")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "List of all products")
+            @ApiResponse(responseCode = "200", description = "List of all categories")
     })
     @GetMapping("/categories/all")
     @PreAuthorize("hasAnyRole('ADMIN','CUSTOMER')")
@@ -58,10 +58,10 @@ public class CategoryController {
     }
 
 
-    @Operation(summary = "Get Product By ID")
+    @Operation(summary = "Get Category By ID")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Product found"),
-            @ApiResponse(responseCode = "404", description = "Product not found")
+            @ApiResponse(responseCode = "200", description = "Category found"),
+            @ApiResponse(responseCode = "404", description = "Category not found")
     })
     @GetMapping("/categories/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','CUSTOMER')")
@@ -70,10 +70,10 @@ public class CategoryController {
     }
 
 
-    @Operation(summary = "Update Product")
+    @Operation(summary = "Update Category")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Product updated"),
-            @ApiResponse(responseCode = "404", description = "Product not found"),
+            @ApiResponse(responseCode = "200", description = "Category updated"),
+            @ApiResponse(responseCode = "404", description = "Category not found"),
             @ApiResponse(responseCode = "403", description = "Only ADMIN can update")
     })
     @PutMapping("/categories/{id}")
@@ -85,10 +85,10 @@ public class CategoryController {
 
 
 
-    @Operation(summary = "Delete Product")
+    @Operation(summary = "Delete Category")
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Product deleted"),
-            @ApiResponse(responseCode = "404", description = "Product not found"),
+            @ApiResponse(responseCode = "204", description = "Category deleted"),
+            @ApiResponse(responseCode = "404", description = "Category not found"),
             @ApiResponse(responseCode = "403", description = "Only ADMIN can delete")
     })
     @DeleteMapping("/categories/{id}")
