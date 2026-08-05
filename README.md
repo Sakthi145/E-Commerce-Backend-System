@@ -1,10 +1,11 @@
-# 🛒 E-Commerce Backend System
+# E-Commerce Backend System
 
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Spring Boot](https://img.shields.io/badge/SpringBoot-4.1-green)
 ![JWT](https://img.shields.io/badge/JWT-Authentication-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
 ![Swagger](https://img.shields.io/badge/OpenAPI-Swagger-success)
+![Live API](https://img.shields.io/badge/API-Live-success)
 
 A modular, production-style **E-Commerce REST API** built with **Spring Boot**, featuring JWT-based authentication, role-based access control, product & category management, a shopping cart, and a full order/checkout workflow.
 
@@ -42,6 +43,18 @@ This project is a backend system for an online store, exposing REST APIs that po
 - **Auto-Seeded Admin Account** — a default admin user is created on application startup
 - **Global Exception Handling** — consistent, structured error responses across all modules
 - **Swagger / OpenAPI Docs** — interactive API documentation out of the box
+
+---
+
+## Live Deployment
+
+| Service | URL |
+|---------|-----|
+| **Backend API** | https://e-commerce-backend-system-wx3q.onrender.com |
+| **Swagger UI** | https://e-commerce-backend-system-wx3q.onrender.com/swagger-ui/index.html |
+| **OpenAPI Specification** | https://e-commerce-backend-system-wx3q.onrender.com/v3/api-docs |
+
+> **Note:** This project is a backend REST API. There is no frontend interface. Use the Swagger UI above to explore and test the API endpoints.
 
 ---
 
@@ -298,12 +311,17 @@ Authorization: Bearer <your_jwt_token>
    ./mvnw spring-boot:run
    ```
 
-6. The API will be available at:
+6. The API will be available at(Local):
    ```
    http://localhost:8080
    ```
 
-7. A default admin account is auto-created on first startup (see [Default Admin Credentials](#-default-admin-credentials)).
+7. The API will be available at(Live):
+   ```
+   https://e-commerce-backend-system-wx3q.onrender.com
+   ```
+
+8. A default admin account is auto-created on first startup (see [Default Admin Credentials](#-default-admin-credentials)).
 
 ---
 
@@ -377,6 +395,28 @@ Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test 
 ### Swagger UI
 
 ![Swagger](screenshots/swagger.png)
+
+
+
+### Local
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+### Live
+
+```
+https://e-commerce-backend-system-wx3q.onrender.com/swagger-ui/index.html
+```
+
+### OpenAPI Specification
+
+```
+https://e-commerce-backend-system-wx3q.onrender.com/v3/api-docs
+```
+
+Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test protected endpoints directly from the browser.
 
 ---
 
