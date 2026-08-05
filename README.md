@@ -375,29 +375,6 @@ On first application startup, an admin account is seeded automatically if it doe
 
 ## Swagger UI
 
-Interactive API documentation is available once the application is running:
-
-```
-http://localhost:8080/swagger-ui/index.html
-```
-
-Raw OpenAPI spec:
-```
-http://localhost:8080/v3/api-docs
-```
-
-Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test protected endpoints directly from the browser.
-
----
-
-## Screenshots
-
-### Swagger UI
-
-![Swagger](screenshots/swagger.png)
-
-
-
 ### Local
 
 ```
@@ -417,6 +394,14 @@ https://e-commerce-backend-system-wx3q.onrender.com/v3/api-docs
 ```
 
 Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test protected endpoints directly from the browser.
+
+---
+
+## Screenshots
+
+### Swagger UI
+
+![Swagger](screenshots/swagger.png)
 
 ---
 
