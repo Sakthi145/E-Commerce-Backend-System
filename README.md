@@ -145,7 +145,8 @@ Ecommerce/
     │   ├── CategoryController.java      # /api/ecommerce/categories
     │   ├── CategoryService.java
     │   ├── CategoryRepository.java
-    │   └── models/Category.java
+    │   ├── models/Category.java
+    │   └── dto/ (CategoryRequest, CategoryResponse)
     │
     ├── cart_module/
     │   ├── CartController.java          # /api/ecommerce/cart
@@ -168,7 +169,6 @@ Ecommerce/
     └── common/
         └── PageResponse.java            # Generic pagination wrapper
 ```
-
 ---
 
 ## Database Schema
@@ -422,17 +422,17 @@ Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test 
 
 ## Future Improvements
 
-- [ ] Payment gateway integration (Razorpay / Stripe)
-- [ ] Refresh token support for JWT
-- [ ] Product reviews & ratings module
-- [ ] Wishlist / favorites feature
-- [ ] Email notifications for order status updates
-- [ ] Docker & docker-compose setup for one-command deployment
-- [ ] Unit & integration test coverage
-- [ ] Rate limiting on auth endpoints
-- [ ] Multi-image support for products (currently single `imageUrl`)
-- [ ] Move all secrets to environment variables / a secrets manager
-- [ ] Cloud image storage (AWS S3 / Cloudinary)
+- Payment gateway integration (Razorpay / Stripe)
+- Refresh token support for JWT
+- Product reviews & ratings module
+- Wishlist / favorites feature
+- Email notifications for order status updates
+- Docker & docker-compose setup for one-command deployment
+- Unit & integration test coverage
+- Rate limiting on auth endpoints
+- Multi-image support for products (currently single `imageUrl`)
+- Move all secrets to environment variables / a secrets manager
+- Cloud image storage (AWS S3 / Cloudinary)
 
 ---
 
