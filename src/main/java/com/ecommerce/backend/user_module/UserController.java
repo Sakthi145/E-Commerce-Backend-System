@@ -13,9 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 @RestController
 @RequestMapping("/api/ecommerce/auth")
@@ -26,12 +24,9 @@ import java.util.Map;
 public class UserController {
 
     private final UserService userService;
-    private final UserRepository userRepository;
 
-    public UserController(UserService userService,
-                          UserRepository userRepository) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.userRepository = userRepository;
     }
 
 
@@ -59,19 +54,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/debug/users")
-    public List<Map<String, Object>> getUsers() {
 
-        return userRepository.findAll()
-                .stream()
-                .map(u -> {
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("email", u.getEmail());
-                    map.put("role", u.getRole());
-                    return map;
-                })
-                .toList();
-    }
 
 
     @Operation(summary = "Login User")

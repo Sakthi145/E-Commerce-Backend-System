@@ -72,9 +72,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         .setAuthentication(authentication);
 
 
-                System.out.println(
-                        "AUTHORITIES = " + authentication.getAuthorities()
-                );
+
             }
         }
 

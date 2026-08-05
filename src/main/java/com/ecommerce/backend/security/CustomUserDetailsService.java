@@ -35,10 +35,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                         ));
 
 
-        System.out.println(
-                "LOGIN USER = " + user.getEmail()
-                        + " ROLE = " + user.getRole()
-        );
+
 
         return new org.springframework.security.core.userdetails.User(
 
