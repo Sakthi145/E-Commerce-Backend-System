@@ -88,11 +88,11 @@ Cross-cutting concerns:
 
 **Patterns & principles used:**
 
-- ✔ Modular Layered Architecture
-- ✔ DTO Pattern
-- ✔ Repository Pattern
-- ✔ Dependency Injection
-- ✔ Global Exception Handling
+- Modular Layered Architecture
+- DTO Pattern
+- Repository Pattern
+- Dependency Injection
+- Global Exception Handling
 
 ---
 
