@@ -19,7 +19,6 @@ public class Category {
     private Long id;
 
     @Column(unique = true)
-    @NotBlank
     private String name;
 
     @OneToMany(mappedBy = "category")

@@ -1,7 +1,8 @@
 package com.ecommerce.backend.category_module;
 
 
-import com.ecommerce.backend.category_module.models.Category;
+import com.ecommerce.backend.category_module.dto.CategoryRequest;
+import com.ecommerce.backend.category_module.dto.CategoryResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -39,9 +40,12 @@ public class CategoryController {
     })
     @PostMapping("/categories")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Category> createCategory(@Valid @RequestBody Category category){
-        Category createdCategory = categoryService.createCategory(category);
-        return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
+    public ResponseEntity<CategoryResponse> createCategory(
+            @Valid @RequestBody CategoryRequest request) {
+
+        return new ResponseEntity<>(
+                categoryService.createCategory(request),
+                HttpStatus.CREATED);
     }
 
 
@@ -52,9 +56,12 @@ public class CategoryController {
     })
     @GetMapping("/categories/all")
     @PreAuthorize("hasAnyRole('ADMIN','CUSTOMER')")
-    public ResponseEntity<List<Category>> getAllCategories(){
+    public ResponseEntity<List<CategoryResponse>> getAllCategories() {
 
-        return new ResponseEntity<>(categoryService.getAllCategories(), HttpStatus.OK);
+        return ResponseEntity.ok(
+                categoryService.getAllCategories()
+        );
+
     }
 
 
@@ -65,8 +72,13 @@ public class CategoryController {
     })
     @GetMapping("/categories/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','CUSTOMER')")
-    public ResponseEntity<Category>  getCategoryById(@PathVariable Long id){
-        return new ResponseEntity<>(categoryService.getCategoryById(id), HttpStatus.OK);
+    public ResponseEntity<CategoryResponse> getCategoryById(
+            @PathVariable Long id) {
+
+        return ResponseEntity.ok(
+                categoryService.getCategoryById(id)
+        );
+
     }
 
 
@@ -78,9 +90,13 @@ public class CategoryController {
     })
     @PutMapping("/categories/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Category> updateCategory(@PathVariable Long id, @Valid @RequestBody Category category){
-        Category updatedCategory = categoryService.updateCategory(id, category);
-        return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
+    public ResponseEntity<CategoryResponse> updateCategory(
+            @PathVariable Long id,
+            @Valid @RequestBody CategoryRequest request) {
+
+        return new ResponseEntity<>(
+                categoryService.updateCategory(id, request),
+                HttpStatus.OK);
     }
 
 

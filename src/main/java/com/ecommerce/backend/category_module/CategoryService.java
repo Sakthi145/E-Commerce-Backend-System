@@ -1,5 +1,7 @@
 package com.ecommerce.backend.category_module;
 
+import com.ecommerce.backend.category_module.dto.CategoryRequest;
+import com.ecommerce.backend.category_module.dto.CategoryResponse;
 import com.ecommerce.backend.exceptions.CategoryAlreadyExistsException;
 import com.ecommerce.backend.category_module.models.Category;
 import com.ecommerce.backend.exceptions.CategoryNotFoundException;
@@ -19,42 +21,73 @@ public class CategoryService {
 
     }
 
-    public Category createCategory(Category category) {
+    public CategoryResponse createCategory(CategoryRequest request) {
 
-        Optional<Category> existingCategory = categoryRepository.findByName(category.getName());
+        Optional<Category> existingCategory =
+                categoryRepository.findByName(request.getName());
 
         if (existingCategory.isPresent()) {
-            throw new CategoryAlreadyExistsException("Category already exists.");
+            throw new CategoryAlreadyExistsException(
+                    "Category already exists.");
         }
 
-        return categoryRepository.save(category);
+        Category category = new Category();
+
+        category.setName(request.getName());
+
+        Category savedCategory =
+                categoryRepository.save(category);
+
+        return mapToResponse(savedCategory);
     }
 
-    public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+    public List<CategoryResponse> getAllCategories() {
+
+        return categoryRepository.findAll()
+                .stream()
+                .map(this::mapToResponse)
+                .toList();
+
     }
 
-    public Category getCategoryById(Long id) {
-        return categoryRepository.findById(id)
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found."));
+    public CategoryResponse getCategoryById(Long id) {
+
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() ->
+                        new CategoryNotFoundException(
+                                "Category not found."));
+
+        return mapToResponse(category);
+
     }
 
-    public Category updateCategory(Long id, Category category) {
+    public CategoryResponse updateCategory(
+            Long id,
+            CategoryRequest request) {
 
-        Category existingCategory = categoryRepository.findById(id)
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found."));
+        Category existingCategory =
+                categoryRepository.findById(id)
+                        .orElseThrow(() ->
+                                new CategoryNotFoundException(
+                                        "Category not found."));
 
-        Optional<Category> categoryWithSameName = categoryRepository.findByName(category.getName());
+        Optional<Category> categoryWithSameName =
+                categoryRepository.findByName(request.getName());
 
         if (categoryWithSameName.isPresent()
                 && !categoryWithSameName.get().getId().equals(id)) {
 
-            throw new CategoryAlreadyExistsException("Category already exists.");
+            throw new CategoryAlreadyExistsException(
+                    "Category already exists.");
         }
 
-        existingCategory.setName(category.getName());
+        existingCategory.setName(request.getName());
 
-        return categoryRepository.save(existingCategory);
+        Category updatedCategory =
+                categoryRepository.save(existingCategory);
+
+        return mapToResponse(updatedCategory);
+
     }
 
     public void deleteCategoryById(Long id) {
@@ -67,7 +100,14 @@ public class CategoryService {
         categoryRepository.delete(category);
     }
 
+    private CategoryResponse mapToResponse(Category category) {
 
+        return new CategoryResponse(
+                category.getId(),
+                category.getName()
+        );
+
+    }
 
 
 }
