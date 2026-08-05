@@ -38,7 +38,7 @@ public class CategoryController {
             @ApiResponse(responseCode = "403", description = "Only ADMIN can create categories")
     })
     @PostMapping("/categories")
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Category> createCategory(@Valid @RequestBody Category category){
         Category createdCategory = categoryService.createCategory(category);
         return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
