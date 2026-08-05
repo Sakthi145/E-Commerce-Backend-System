@@ -10,13 +10,13 @@ A modular, production-style **E-Commerce REST API** built with **Spring Boot**, 
 
 ---
 
-## 📖 Project Overview
+## Project Overview
 
 This project is a backend system for an online store, exposing REST APIs that power the core flows of an e-commerce platform: user registration/login, product catalog browsing (with search & pagination), category management, cart operations, and order checkout with status tracking. Access is secured with JWT and enforced via role-based authorization (`ADMIN` / `CUSTOMER`).
 
 ---
 
-## ⭐ Key Highlights
+## Key Highlights
 
 - Feature-based modular architecture
 - JWT Authentication & Role-Based Authorization
@@ -29,23 +29,23 @@ This project is a backend system for an online store, exposing REST APIs that po
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔐 **JWT Authentication** — stateless login/register with role-based access control
-- 🔒 **BCrypt Password Hashing** — passwords are never stored in plain text
-- 📦 **Product Management** (CRUD, Pagination, Search) — create, update, delete, fetch by ID/category, paginate, and search products
-- 🗂️ **Category Management** — full CRUD for product categories
-- 🛍️ **Shopping Cart** — add, update, remove items, and clear cart per user
-- 🧾 **Order Management** — checkout from cart, view order history & details, cancel orders, track status
-- 🔄 **Order Status Workflow** — `PLACED → CONFIRMED → SHIPPED → OUT_FOR_DELIVERY → DELIVERED` (with `CANCELLED` as a terminal state)
-- 👑 **Admin Controls** — admin-only endpoints for managing products, categories, and order statuses
-- 🌱 **Auto-Seeded Admin Account** — a default admin user is created on application startup
-- 📑 **Global Exception Handling** — consistent, structured error responses across all modules
-- 📘 **Swagger / OpenAPI Docs** — interactive API documentation out of the box
+- **JWT Authentication** — stateless login/register with role-based access control
+- **BCrypt Password Hashing** — passwords are never stored in plain text
+- **Product Management** (CRUD, Pagination, Search) — create, update, delete, fetch by ID/category, paginate, and search products
+- **Category Management** — full CRUD for product categories
+- **Shopping Cart** — add, update, remove items, and clear cart per user
+- **Order Management** — checkout from cart, view order history & details, cancel orders, track status
+- **Order Status Workflow** — `PLACED → CONFIRMED → SHIPPED → OUT_FOR_DELIVERY → DELIVERED` (with `CANCELLED` as a terminal state)
+- **Admin Controls** — admin-only endpoints for managing products, categories, and order statuses
+- **Auto-Seeded Admin Account** — a default admin user is created on application startup
+- **Global Exception Handling** — consistent, structured error responses across all modules
+- **Swagger / OpenAPI Docs** — interactive API documentation out of the box
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -61,7 +61,7 @@ This project is a backend system for an online store, exposing REST APIs that po
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The application follows a **modular, layered architecture**, where each business domain (`user`, `product`, `category`, `cart`, `order`) is organized as a self-contained feature module rather than split across generic `controller/`, `service/`, `repository/` packages.
 
@@ -96,7 +96,7 @@ Cross-cutting concerns:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Ecommerce/
@@ -158,7 +158,7 @@ Ecommerce/
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 **Entities & Relationships**
 
@@ -185,21 +185,21 @@ User (1) ──────── (1) Cart ──────── (N) CartItem
                                                 Category (1) ──── (N)
 ```
 
-> ℹ️ Tables are auto-created/updated by Hibernate (`spring.jpa.hibernate.ddl-auto=update`) — no manual schema setup is required.
+> Tables are auto-created/updated by Hibernate (`spring.jpa.hibernate.ddl-auto=update`) — no manual schema setup is required.
 
 ---
 
-## 📡 API Documentation
+## API Documentation
 
 Base path: **`/api/ecommerce`**
 
-### 🔑 Authentication — `/auth`
+### Authentication — `/auth`
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
 | POST | `/auth/register` | Public | Register a new customer |
 | POST | `/auth/login` | Public | Log in and receive a JWT |
 
-### 📦 Products — `/products`
+### Products — `/products`
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
 | POST | `/products` | ADMIN | Create a product |
@@ -211,7 +211,7 @@ Base path: **`/api/ecommerce`**
 | GET | `/products/page?page=&size=&sortBy=&direction=` | ADMIN, CUSTOMER | Paginated product listing |
 | GET | `/products/search?keyword=` | ADMIN, CUSTOMER | Search products by keyword |
 
-### 🗂️ Categories — `/categories`
+### Categories — `/categories`
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
 | POST | `/categories` | ADMIN | Create a category |
@@ -220,7 +220,7 @@ Base path: **`/api/ecommerce`**
 | PUT | `/categories/{id}` | ADMIN | Update a category |
 | DELETE | `/categories/{id}` | ADMIN | Delete a category |
 
-### 🛍️ Cart — `/cart`
+### Cart — `/cart`
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
 | POST | `/cart/add` | Authenticated | Add a product to the cart |
@@ -229,7 +229,7 @@ Base path: **`/api/ecommerce`**
 | DELETE | `/cart/{cartItemId}` | Authenticated | Remove an item from the cart |
 | DELETE | `/cart/clear` | Authenticated | Clear the entire cart |
 
-### 🧾 Orders — `/orders`
+### Orders — `/orders`
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
 | POST | `/orders/checkout` | Authenticated | Place an order from the current cart |
@@ -243,7 +243,7 @@ Base path: **`/api/ecommerce`**
 
 ---
 
-## 🔐 Authentication
+## Authentication
 
 - Authentication is **stateless**, using **JWT (JSON Web Tokens)**.
 - On successful `/auth/login`, the server returns a signed JWT containing the user's email.
@@ -262,7 +262,7 @@ Authorization: Bearer <your_jwt_token>
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Java 21+ (JDK) — *developed and tested on JDK 26*
@@ -307,9 +307,9 @@ Authorization: Bearer <your_jwt_token>
 
 ---
 
-## 🔧 Environment Variables
+## Environment Variables
 
-> ℹ️ The repository does not contain production secrets. Configure the following environment variables before running the application.
+> The repository does not contain production secrets. Configure the following environment variables before running the application.
 
 ```properties
 spring.application.name=Ecommerce
@@ -341,7 +341,7 @@ You can set these via a `.env` file with `spring-dotenv`, your IDE's run configu
 
 ---
 
-## 👤 Default Admin Credentials
+## Default Admin Credentials
 
 On first application startup, an admin account is seeded automatically if it doesn't already exist:
 
@@ -351,11 +351,11 @@ On first application startup, an admin account is seeded automatically if it doe
 | Password | `Admin@123` |
 | Role | `ADMIN` |
 
-> 🔒 **Security note:** Change this password immediately after your first login in any non-local environment, or override the seeding logic in `AdminInitializer.java` to pull credentials from environment variables instead.
+> **Security note:** Change this password immediately after your first login in any non-local environment, or override the seeding logic in `AdminInitializer.java` to pull credentials from environment variables instead.
 
 ---
 
-## 📘 Swagger UI
+## Swagger UI
 
 Interactive API documentation is available once the application is running:
 
@@ -372,7 +372,7 @@ Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test 
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Swagger UI
 
@@ -380,7 +380,7 @@ Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test 
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 
 - [ ] Payment gateway integration (Razorpay / Stripe)
 - [ ] Refresh token support for JWT
@@ -396,13 +396,13 @@ Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test 
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License**.
 
 ---
 
-## ✍️ Author
+## Author
 
 **S. Sakthi**
 📧 [ushasakthi2003@gmail.com](mailto:ushasakthi2003@gmail.com)
@@ -410,4 +410,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-<p align="center">⭐ If you found this useful, consider giving it a star!</p>
+<p align="center">If you found this useful, consider giving it a star!</p>
