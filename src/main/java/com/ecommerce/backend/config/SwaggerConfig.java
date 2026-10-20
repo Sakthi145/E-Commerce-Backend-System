@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
 
-    @Bean
+    @Bean // Object creation
     public OpenAPI ecommerceOpenAPI() {
 
         return new OpenAPI()
@@ -25,9 +25,23 @@ public class SwaggerConfig {
 
                                 .title("E-Commerce Backend API")
 
-                                .description(
-                                        "REST API for an E-Commerce application built using Spring Boot."
-                                )
+
+                                .description("""
+    REST API for an E-Commerce application built using Spring Boot.
+
+    DEMO ADMIN LOGIN
+    ----------------
+    Admin Email: admin@gmail.com
+    Admin Password: Admin@123
+
+    HOW TO TEST THE API
+    1. Open the authentication/login endpoint.
+    2. Enter the demo Admin email and password.
+    3. Click Execute to receive a JWT token.
+    4. Click Authorize at the top of Swagger UI.
+    5. Enter the JWT token to access protected endpoints.
+    """)
+
 
                                 .version("1.0.0")
 
