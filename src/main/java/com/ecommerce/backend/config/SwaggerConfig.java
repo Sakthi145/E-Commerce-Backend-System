@@ -53,7 +53,7 @@ public class SwaggerConfig {
 
                                                 .email("ushasakthi2003@gmail.com")
 
-                                                .url("https://github.com/your-github")
+                                                .url("https://github.com/Sakthi145")
 
                                 )
 
