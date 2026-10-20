@@ -49,10 +49,10 @@ This project is a backend system for an online store, exposing REST APIs that po
 ## Live Deployment
 
 | Service | URL |
-|---------|-----|
-| **Backend API** | https://e-commerce-backend-system-wx3q.onrender.com |
-| **Swagger UI** | https://e-commerce-backend-system-wx3q.onrender.com/swagger-ui/index.html |
-| **OpenAPI Specification** | https://e-commerce-backend-system-wx3q.onrender.com/v3/api-docs |
+|---------|----|
+| **Backend API** | https://e-commerce-backend-system-860z.onrender.com |
+| **Swagger UI** | https://e-commerce-backend-system-860z.onrender.com/swagger-ui/index.html |
+| **OpenAPI Specification** | https://e-commerce-backend-system-860z.onrender.com/v3/api-docs |
 
 > **Note:** This project is a backend REST API. There is no frontend interface. Use the Swagger UI above to explore and test the API endpoints.
 
@@ -318,7 +318,7 @@ Authorization: Bearer <your_jwt_token>
 
 7. The API will be available at(Live):
    ```
-   https://e-commerce-backend-system-wx3q.onrender.com
+   https://e-commerce-backend-system-860z.onrender.com
    ```
 
 8. A default admin account is auto-created on first startup (see [Default Admin Credentials](#-default-admin-credentials)).
@@ -390,7 +390,7 @@ https://e-commerce-backend-system-860z.onrender.com/swagger-ui/index.html
 ### OpenAPI Specification
 
 ```
-https://e-commerce-backend-system-wx3q.onrender.com/v3/api-docs
+https://e-commerce-backend-system-860z.onrender.com/v3/api-docs
 ```
 
 Click **Authorize** in Swagger UI and paste your JWT (`Bearer <token>`) to test protected endpoints directly from the browser.
