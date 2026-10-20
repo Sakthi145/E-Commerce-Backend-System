@@ -378,13 +378,13 @@ On first application startup, an admin account is seeded automatically if it doe
 ### Local
 
 ```
-http://localhost:8080/swagger-ui/index.html
+https://e-commerce-backend-system-860z.onrender.com
 ```
 
 ### Live
 
 ```
-https://e-commerce-backend-system-wx3q.onrender.com/swagger-ui/index.html
+https://e-commerce-backend-system-860z.onrender.com/swagger-ui/index.html
 ```
 
 ### OpenAPI Specification
